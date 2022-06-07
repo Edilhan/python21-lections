@@ -1,0 +1,21 @@
+hello
+ls -a - показывает скрытые файлы
+ls -l - показывет подробную инфу
+cd - переходит в домаш папку
+cd test - переходит в папку тест
+cd . - перех в текущ папку
+cd .. - перех в предыдущ папку
+cd test/test2 - переходит в папку test2, котор наход в папке test
+mkdir test - создает папку test
+mkdir test/test2 - созд папку в уже созд папке
+mkdir test1 test2 - созд папки test1 и test2
+touch test.txt - созд test.txt 
+rm test - удаляет файл если это не папка
+rm -rf test - удаляет файл или папку со всем содержимым без возвратно
+pwd - показ где мы находимся
+cat test.txt - показ содержимого
+nano test.txt - открывает редактор документа в терминале
+code test.txt - открывает редактор кода в vs code
+sudo -  права суперюзера
+sudo apt install git - установить git
+sudo snap install code --classic - установ прог vs code
