@@ -1,0 +1,4 @@
+git init - создаем git репозиторий из текущ папки
+git add . - прост пишем эту комманду кажд раз перед commit
+git commit -m 'message' - созд нов версию
+git push orogin master - закидыв версию в github
