@@ -8,3 +8,5 @@ tuple3 = tuple('hello') # h e l l o
 tuple4 = (5) # 5 (int)
 tuple6 = 5, # (5,)
 tuple5 = 'hello' 
+a,b = 4,5
+a = 4,5
