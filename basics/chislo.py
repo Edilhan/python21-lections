@@ -1,13 +1,14 @@
-from random import Random, random
+from random import Random, random, randrange
 # from turtle import end_fill
+# import random
 
 a = input('Как зовут')
 b = input('Готов? (yes/no) ')
 while b == 'yes':
-    c = Random.randrange(1,10)
+    c = randrange(1,10)
     print(c)
     d = int(input('Введи число '))
-    i = int
+    i = int()
     while c != d:
         i = i + 1
         d = int(input('Введи число '))
