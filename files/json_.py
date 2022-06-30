@@ -1,0 +1,16 @@
+import json
+
+dict_ = {
+        'products': [
+            {
+                'id': 1,
+                'name': 'snickers',
+                'price': 45,
+            },
+            {
+                'id': 2,
+                'name': 'bounty',
+                'price': 45,
+            }
+        ]
+        }
