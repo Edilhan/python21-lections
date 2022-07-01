@@ -5,3 +5,9 @@ git add . - прост пишем эту комманду кажд раз пер
 git commit -m 'message' - созд нов версию
 git push orogin master - закидыв версию в github
 git clone ssh-ссылка - копируем репозиторий с гитхаба
+git log - показ все коммиты
+git branch - показ все ветки и выделяет звездочкой текущ ветку
+git branch название - создает ветку
+git checkout ветка - перейти на ветку
+git checkout -b - создать и перейти
+git branch -D - удалить ветку
