@@ -11,3 +11,11 @@ git branch название - создает ветку
 git checkout ветка - перейти на ветку
 git checkout -b - создать и перейти
 git branch -D - удалить ветку
+
+
+
+!!!!!!WARNING!!!!!!
+git reset HEAD~ - отменяет последний коммит, как коммит но наоборот
+git restore . - похоже на add, но наоборот
+git merge 
+
