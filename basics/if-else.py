@@ -51,7 +51,7 @@ for i in range(1, 201):
 
 # Тернарные операторы
 # условия в одну строку
-res = 'Hello' if a == 5 else 'Bye
+res = 'Hello' if a == 5 else 'Bye'
 print(res)
 # Hello if a == 5
 # Bye if a != 5
