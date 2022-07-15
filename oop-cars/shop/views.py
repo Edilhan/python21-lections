@@ -21,10 +21,10 @@ def cars_create():
     marka = input("Введите название марки: ")
     model = input("Введите название модели: ")
     year = int(input("Введите год выпуска: "))
-    volume = decimal(input("Введите обьем двигателя: "), 1)
+    volume = float(input("Введите обьем двигателя: "))
     color = input("Введите цвет машины: ")
     cuzov = input(f"Введите тип кузова {Cars.cuzov}: ")
-    price = decimal(input("Введите стоимость: "), 2)
+    price = float(input("Введите стоимость: "))
     Cars(marka, model, year, volume, color, cuzov, price)
     return "Продукт успешно создан"
 
