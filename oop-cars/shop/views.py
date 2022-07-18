@@ -5,7 +5,7 @@ from .models import Cars
 
 class ProductSerializer:
     class Meta:
-        fields = ["id","marka", "model", "year", "volume", "color", "cuzov", "price"]
+        fields = ["id","marka", "model", "year", "volume", "color", "cuzov", "probeg", "price"]
         queryset = Cars.objects
 
     def serialize_obj(self, obj):
@@ -25,7 +25,8 @@ def cars_create():
     color = input("Введите цвет машины: ")
     cuzov = input(f"Введите тип кузова {Cars.cuzov}: ")
     price = float(input("Введите стоимость: "))
-    Cars(marka, model, year, volume, color, cuzov, price)
+    probeg = int(print("Введите пробег: "))
+    Cars(marka, model, year, volume, color, cuzov, probeg, price)
     return "Продукт успешно создан"
 
 def get_obj_or_404(model, attr, val):
