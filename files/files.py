@@ -1,57 +1,91 @@
-# Работа с файлами
-# open - функ, кот открыв файл
-# r - read только читает
-# w - write только для записи, сначала все удаляет потом записывает
-# a - append дозапись, все нвоое добав в конец
-# x - создает файл, если он уже существ выдает ошибку
-# rb - чтение в бинарном виде
-# wb - запись в бинарном виде
-# ab - дозапись
+"================Работа с файлами==================="
+# open - функция, которая позволяет открыть файл
+"=========Режимы=========="
+# r  - read (только для чтения)
+# w  - write (только для записи (сначала все из файла удаляется, а потом записывается))
+# a  - append (дозапись (все новое добавляется в конец))
+# x  - создает файл. если он уже существует - ошибка
+# rb  - чтение в бинарном виде
+# wb  - запись в бинарном виде
+# ab  - дозапись в бинарном виде
 
-# Когда мы не указ режим - по умолчанию чтение
-# open("test.txt") FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
-# open("test.txt", "w") # создает и записывает файл test.txt или открыл и почистил, а потом записал
-# open("test.txt", "a") # обновляет файл или создает его если того не сущ
-# res = file.read() - метод нельзя использ при режиме записи и дозаписи
-# file.write() - запись в файл
-# file.writelines([1,2,3]) - записывает без пробела в одну строку
-# file.close() - обязательно закрываем
+"когда мы не указываем режим - по умолчанию чтение"
+# open("test.txt")  FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
 
-#  READ
-file = open("test.txt")
-res = file.read() # считывает весь файл
-file.seek(0) # каретка переходит в индекс 0
-print(file.read(5)) # выведет 5 символов
-print(file.read(5)) # выведет след 5 симв
-print(file.tell()) # показ текущ положение каретки
-res = file.readlines() # возвращ список из линий из файла
-file.close() 
+"когда мы открываем файл в режиме w - он создает пустой файл и потом туда записывает данные"
+# open("test.txt", "w")    - создает пустой файл
 
-file = open("test.txt", 'w+')
-file.write("Hello world\nMakers\nBootcamp")
+"когда файла нет - он создает его"
+# open("test.txt", "a")
+
+
+"===================READ======================"
+file = open("test.txt") # открываем файл в режиме чтения
+res = file.read() # считаывет весь файл и возвращает строку
+print(file.read(5)) # пустая строка, потому что каретка находится в самом конце файла
+file.seek(0) # каретка переходит в индекс 0 (в начало файла)
+print(file.read(5))  # 'hello' (считал 5 символов)
+print(file.read(5))  # ' worl' (считал следующие символы)
+print(file.tell())  # 10  (показывает текущее положение каретки)
+file.readlines()  # ['d\n', 'Makers Bootcamp\n', 'line1\n', 'line2\n', 'line3\n']
 file.seek(0)
-res = file.read()
-file.seek(0)
-file.write("New lines\n")
-file.write(res)
+print(file.readlines()) # ['hello world\n', 'Makers Bootcamp\n', 'line1\n', 'line2\n', 'line3\n']
+print(file.tell()) # 46
 file.close()
 
 
+"===================WRITE====================="
+file = open("test.txt", "w") # открыл файл, почистил
+# res = file.read()   io.UnsupportedOperation: not readable
+# метод read нельзя использовать при режиме записи и дозаписи
+file.write("hello world\n") # в файл записали строку hello world
+file.write("Makers Bootcamp\n") # после этого продолжает писать строку Makers Bootcamp
+file.writelines(["line1\n", "line2\n", "line3\n"]) # принимает список со строками и дозаписывает их в файл
+file.close() # обязательно закрываем файл
 
-#  WITH
-# with - позволяет в начале конструкции вызывает __enter__  а в конце вызывает __exit__
-class Test: 
+
+
+
+"==============With================="
+# with - конструкция, которая в начале конструкции вызывает метод __enter__, а в конце вызывает __exit__
+class Test:
     def __enter__(self):
-        print("начало работы")
+        print("Начало работы")
         return self
-
-    def __exit__(self):
-        print("Конец работы ")
-
+    
+    def __exit__(self, *args, **kwargs):
+        print("Конец работы")
+    
     def hello(self):
-        print("Hello World")
+        print("Hello world")
 
 with Test() as test:
     test.hello()
 
+# Начало работы
+# Hello world
+# Конец работы
 
+
+file1 = open("test.txt", "w")
+file1.write("hello")
+file1.close()
+file2 = open("test.txt", "w")
+file2.write("world")
+# file1.write("fdgirwsukgh")  # ValueError: I/O operation on closed file.
+# потому что file1 мы закрыли
+file2.close()
+
+
+with open("test.txt", 'w+') as file:
+    file.write("Hello world\nMakers\nBootcamp")
+    file.seek(0)
+    res = file.read()
+    file.seek(0)
+    file.write("New lines\n")
+    file.write(res)
+
+with open("test.txt") as file:
+    print(file.read())
+    print(file.closed) # False
+print(file.closed) # True
